@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { WorldComponent } from './world/world.component';
 import { HomeComponent } from './home/home.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     WorldComponent,
-    HomeComponent
+    HomeComponent,
+    PortfolioComponent
   ],
 
   imports: [
