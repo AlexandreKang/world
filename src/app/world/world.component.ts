@@ -56,7 +56,8 @@ ngAfterViewInit()
       polygonTemplate.events.on("hit", function(ev) {
       ev.target.series.chart.zoomToMapObject(ev.target)
         chart.closeAllPopups();
-        chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q={name}&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
+        chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
+
       });
 
       let usaTemplate = usaSeries.mapPolygons.template;
@@ -66,17 +67,17 @@ ngAfterViewInit()
       usaTemplate.events.on("hit", function(ev) {
       ev.target.series.chart.zoomToMapObject(ev.target)
       chart.closeAllPopups();
-      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q={name}&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
+      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
     });
 
       let canadaTemplate = canadaSeries.mapPolygons.template;
-      canadaTemplate.tooltipText = "{name}\nhttps://duckduckgo.com/?q={name}&t=h_&ia=news&iar=news";
+      canadaTemplate.tooltipText = "{name}";
       canadaTemplate.fill = am4core.color("#61605f");
 
       canadaTemplate.events.on("hit", function(ev) {
       ev.target.series.chart.zoomToMapObject(ev.target)
       chart.closeAllPopups();
-      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q={name}&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
+      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
     });
 
       let hs = polygonTemplate.states.create("hover");
