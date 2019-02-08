@@ -56,8 +56,7 @@ ngAfterViewInit()
       polygonTemplate.events.on("hit", function(ev) {
       ev.target.series.chart.zoomToMapObject(ev.target)
         chart.closeAllPopups();
-        chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
-
+        chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name.replace(/\s/g, "") + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
       });
 
       let usaTemplate = usaSeries.mapPolygons.template;
@@ -67,7 +66,7 @@ ngAfterViewInit()
       usaTemplate.events.on("hit", function(ev) {
       ev.target.series.chart.zoomToMapObject(ev.target)
       chart.closeAllPopups();
-      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
+      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name.replace(/\s/g, "") + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
     });
 
       let canadaTemplate = canadaSeries.mapPolygons.template;
@@ -77,7 +76,7 @@ ngAfterViewInit()
       canadaTemplate.events.on("hit", function(ev) {
       ev.target.series.chart.zoomToMapObject(ev.target)
       chart.closeAllPopups();
-      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
+      chart.openPopup("We clicked on <strong> <a href = https://duckduckgo.com/?q=" + (<any>ev.target.dataItem.dataContext).name.replace(/\s/g, "") + "&t=h_&ia=news&iar=news target=_blank>" + (<any>ev.target.dataItem.dataContext).name + "</a> </strong>");
     });
 
       let hs = polygonTemplate.states.create("hover");
@@ -92,13 +91,13 @@ ngAfterViewInit()
       chart.zoomControl.slider.height = 100;
 
       let button = chart.chartContainer.createChild(am4core.Button);
-      // button.label.text = "Home";
       button.padding(5, 5, 5, 5);
       button.width = 50;
       button.align = "right";
       button.marginRight = 15;
       button.events.on("hit", function() {
       chart.goHome();
+      chart.closeAllPopups();
       });
       button.icon = new am4core.Sprite();
       button.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
